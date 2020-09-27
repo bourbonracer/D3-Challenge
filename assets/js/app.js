@@ -103,5 +103,11 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("dy", "1em")
       .attr("class", "axisText")
       .text("Smokers (%)");
-
+      
+      chartGroup.append("text")
+      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+      .attr("class", "axisText")
+      .text("Average Age");
+  }).catch(function(error) {
+    console.log(error);
 });
