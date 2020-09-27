@@ -74,11 +74,16 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .text(function(d){return d.abbr})
     .attr("class", "stateText")
 
-    //Initialize tool tip
+    // Initialize tool tip
     var toolTip = d3.tip()
       .attr("class", "d3-tip")
       .offset([80, -60])
       .html(function(d) {
         return (`<h6>${d.state}</h6><hr>Average Age: ${d.age}<br>Smoking Percentage: ${d.smokes}`);
       });
+
+    // Create tooltip in the chart
+    chartGroup.call(toolTip);
+
+    
 })
