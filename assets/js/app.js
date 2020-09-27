@@ -85,5 +85,15 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     // Create tooltip in the chart
     chartGroup.call(toolTip);
 
-    
+    // Create event linisters to display and hide the tooltip
+    chartText.on("mouseover", function(data) {
+        toolTip.show(data, this);
+    })
+    circlesGroup.on("mouseover", function(data) {
+        toolTip.show(data, this);
+    })
+      .on("mouseout", function(data, index) {
+          toolTip.hide(data);
+      });
+
 })
