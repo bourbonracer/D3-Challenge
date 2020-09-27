@@ -34,7 +34,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
 
     // Create scale functions
     var xLinearScale = d3.scaleLinear()
-      .domain(d3.max(healthData, d=> d.age))
+      .domain([d3.min(healthData, d=> d.age), d3.max(healthData, d=> d.age)])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
@@ -103,7 +103,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("dy", "1em")
       .attr("class", "axisText")
       .text("Smokers (%)");
-      
+
       chartGroup.append("text")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
