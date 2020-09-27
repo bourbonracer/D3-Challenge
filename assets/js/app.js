@@ -34,11 +34,11 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
 
     // Create scale functions
     var xLinearScale = d3.scaleLinear()
-      .domain([d3.min(healthData, d=> d.age), d3.max(healthData, d=> d.age)])
+      .domain([d3.min(healthData, d=> d.age)-1, d3.max(healthData, d=> d.age)+1])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([d3.min(healthData, d => d.smokes), d3.max(healthData, d => d.smokes)])
+      .domain([d3.min(healthData, d => d.smokes)-3, d3.max(healthData, d => d.smokes)+3])
       .range([height, 0]);
 
     // Create axis functions
