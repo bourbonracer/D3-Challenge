@@ -62,4 +62,14 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .attr("cy", d => yLinearScale(d.smokes))
     .attr("r", "15")
     .attr("class", "stateCircle")
+
+    // Create text
+    var chartText = textGrp.selectAll("text")
+    .data(healthData)
+    .enter()
+    .append("text")
+    .attr("dx", d => xLinearScale(d.age))
+    .attr("dy", d => yLinearScale(d.smokes))
+    .text(function(d){return d.abbr})
+    .attr("class", "stateText")
 })
