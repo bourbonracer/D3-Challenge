@@ -40,4 +40,10 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     var yLinearScale = d3.scaleLinear()
       .domain(d3.max(healthData, d => d.smokes))
       .range([height, 0]);
+
+    // Create axis functions
+    var bottomAxis = d3.axisBottom(xLinearScale);
+    var leftAxis = d3.axisLeft(yLinearScale);
+
+    
 })
